@@ -1,0 +1,169 @@
+\documentclass[]{templates/sig-alternate-2}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Publishing ACM Papers with Pandoc},
+            pdfauthor={Andrew Hobden},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\title{Publishing ACM Papers with Pandoc}
+\author{Andrew Hobden}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We instruct users how to automatically generate open source ACM proceedings papers with \texttt{pandoc}, Github, and Travis CI.
+\end{abstract}
+
+This is a guide by Andrew Hobden. This demos a reference using the provided CSL: @hoverbear.
+
+\section{Prerequisites}\label{prerequisites}
+
+\begin{itemize}
+\tightlist
+\item
+  A good idea.
+\item
+  Some references.
+\item
+  Knowledge of how to use markdown.
+\item
+  (Optional) \texttt{pandoc} installed locally along with \texttt{texlive-full}.
+\item
+  A Github account.
+\end{itemize}
+
+\section{Slipsum}\label{slipsum}
+
+Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, `cause I'll kill the motherfucker, know what I'm sayin'?
+
+\subsection{Second Paragraph}\label{second-paragraph}
+
+Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
+
+Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when\ldots{} You know why, David? Because of the kids. They called me Mr Glass.
+
+lorem ipsum
+
+First, clone the preconfigured repo.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{git} \NormalTok{clone git@github.com:Hoverbear/acm-pandoc-paper.git}
+\end{Highlighting}
+\end{Shaded}
+
+After, create a \href{https://github.com/new}{new Github repository for your paper}. Don't add any initialization files. \emph{Note:} Travis CI only offers free workers for public repos.
+
+Then you can visit your \href{https://travis-ci.org/profile}{Travis CI Profile} and switch the repository you created to `on'. \emph{Hint:} You might need to hit ``sync''.
+
+Since it would be positively outrageous to give Travis your Github password or private key, we'll use what's called an ``access token''. To get one of these, go to your Github settings and you need to create a ``Personal Access Token'', you only need to give it the ``public\_repo'' permission. From there you can install the \href{https://github.com/travis-ci/travis.rb\#installation}{Travis Gem} and safely encrypt it. Make sure to delete the existing key from \texttt{.travis.yml} first, that's mine!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{travis} \NormalTok{encrypt GH_TOKEN=}\OtherTok{$YOUR_TOKEN} \NormalTok{--add env.global}
+\end{Highlighting}
+\end{Shaded}
+
+Now, point the repo that was cloned to your newly created Github repository. The easiest way of doing this is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{rm} \NormalTok{-rf .git}
+\KeywordTok{git} \NormalTok{init}
+\KeywordTok{//} \NormalTok{Add your things and commit.}
+\KeywordTok{git} \NormalTok{remote add origin }\OtherTok{$YOUR_REPO}
+\KeywordTok{git} \NormalTok{push -u origin master}
+\end{Highlighting}
+\end{Shaded}
+
+Now every time you push to the repository Travis will go and build a PDF and HTML output page to the \texttt{gh-pages} branch of your repository. Your papers will be at \texttt{https://\$USER.github.io/\$REPO/} and \texttt{https://\$USER.github.io/\$REPO/paper.pdf} respectively.
+
+If you want to see the output on your machine just run \texttt{make} and check in \texttt{out/}.
+
+You can see the example output \href{https://hoverbear.github.io/acm-pandoc-paper/}{here} and \href{https://hoverbear.github.io/acm-pandoc-paper/paper.pdf}{here}
+
+\section{References}\label{references}
+
+\end{document}
