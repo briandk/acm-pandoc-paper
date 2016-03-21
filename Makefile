@@ -10,4 +10,5 @@ html:
 	pandoc --smart --filter pandoc-citeproc --standalone --css=pandoc.css --toc --highlight-style=haddock -f markdown -t html -o out/index.html paper.md
 	cp templates/pandoc.css out/pandoc.css
 
-
+latex:
+	pandoc --variable documentclass=templates/sig-alternate-2 -f markdown -t latex --standalone --wrap=none -o paper.tex paper.md
